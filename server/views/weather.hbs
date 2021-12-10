@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know your local area's Weather forecast</title>
+    <link rel="stylesheet" href="./Css/root.css">
+    <link rel="stylesheet" href="./Css/weather.css">
+    <!--Font awesome-->
+    {{!-- {{fontAwesome}} --}}
+    <script src="https://kit.fontawesome.com/fd1a296e6c.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body onload="loadingBar()">
+    {{!-- Nav --}}
+    {{>nav}}
+
+    {{!-- MAIN --}}
+
+    {{!-- Loading Bar --}}
+    {{>loadingBar}}
+    {{!-- Loading Bar --}}
+
+
+    <main>
+        <section class="container-fluid">
+            <div id="shortTimeMsg"><span>
+                    <p>Please enter the currect City or Area name for accurate output.</p><i id="cross" class="fas fa-times"></i>
+                </span></div>
+
+            <div id="cityNameError"><span>
+                    <p id="errorContent">Please Enter a currect City or Area name or Postal Code</p><i id="cross2" class="fas fa-times"></i>
+                </span></div>
+
+            <div class="searchBar">
+                <span>
+                    <i style="font-size: 1.5rem; text-align:center;" class="fas fa-cloud-sun"></i>
+                    <input name="userData" id="searchBar" type="search" placeholder="Enter your city or Postcode properly" maxlength="15">
+                    <input  type="submit" value="Search" id="searchBTN">
+                </span>
+            </div>
+
+            <div class="outputs">
+                <div class="outputFeild details">
+                    <div class="date_week">
+                        <div class="dw"><span id="day">Monda</span></div>
+                        <div class="dw"><span id="date-month"><p id="date"></p>,<p id="month"></p></span></div>
+                    </div>
+
+                    <div class="city_name">
+                        <p>City: </p>
+                        <span id="cityName">Your city name</span>
+                    </div>
+
+                    <div class="lt-ln">
+                        <div id="lt"> Lat: <span id="lat">00.000</span></div>
+                        <div id="ln"> Long: <span id="lon">00.000</span></div>
+                    </div>
+                </div>
+
+
+                <div class="outputFeild weatherfeild">
+
+                    <div id="weather_status"><span id="wed_status">Rain</span></div>
+
+                    <div id="weather_info">
+                        <div id="temp"><span id="tempData">30</span><sup>&deg;</sup><span>c</span></div>
+                        <div id="weather_status_img">
+                            <div><img id="weather-icon" src="./Assests/Icons/sun-color.png" alt=""></div   >
+                        </div>
+                    </div>
+                </div>
+                <div class="outputFeild otherdetailsfeeild">
+
+                    <div id="min-max-temp"><span>Max:&nbsp;<p id="max"></p>&deg;c</span><span>Min:&nbsp;<P id="min"></p>&deg;c</span></div>
+                <div id="othersfeildMain">
+                    <div class="tempFeelsLike"><i class="fas fa-temperature-low"></i><span><p>Feels like: <span id="feelsLike"></span> </p></span></div>
+                    <div class="Humidity"><i class="fas fa-tint"></i><span><p>Humidity: <span id="humidity"></span> </p></span></div>
+                    <div class="Pressure"><i class="fas fa-sort"></i><span><p>Pressure: <span id="press"></span></p></span></div>
+                    <div class="Wind"><i class="fas fa-wind"></i><span><p>Wind: <span id="wind"></span> </p></span></div>
+                </div>
+                </div>
+            </div>
+
+            <div id="note">
+                <p>Here you can find any city/area/location's weather forecast in the world for free.</p>
+            </div>
+            <div id="note2"><p>If you like our services and want to buy me a coffee the Please <a href="">Click here</a> </p></div>
+        </section>
+
+    </main>
+     {{!-- More Details --}}
+        <section class="moredetails">
+            <div class="MoreDetailscontainrer container-fluid">
+
+            <div class="moreDetailsbody">
+                <div class="moreDetailsHead"><span>More Details</span><span><i onclick="main()" id="dropDown-UpBtn" class="fas fa-chevron-circle-down"></i></span></div>
+            
+                <div class="dateAndTime"><span><p>Your City Date: </p><p>{{cityDateDay}}.{{cityDateMonth}}.{{cityDateYear}}</p></span>
+                <span><p>Your City Time: </p><p>20:10</p></span>
+                </div>
+                <div style="display: flex; justify-content: center ; margin-top: 20px; margin-bottom: 20px"><hr style="width: 95%;"></div>
+                
+                <div id="Ten_day_forecast">
+                    <div id="tenDForC-Container">
+                        <div><span>Day 1</span><span>30</span></div>
+                        <div><span>Day 2</span><span>30</span></div>
+                        <div><span>Day 3</span><span>30</span></div>
+                        <div><span>Day 4</span><span>30</span></div>
+                        <div><span>Day 5</span><span>30</span></div>
+                        <div><span>Day 6</span><span>30</span></div>
+                        <div><span>Day 7</span><span>30</span></div>
+                        <div><span>Day 8</span><span>30</span></div>
+                        <div><span>Day 9</span><span>30</span></div>
+                        <div><span>Day 10</span><span>30</span></div>
+                    </div>
+                </div>
+
+                <div class="warning-status">
+                    <div class="war_stat_container">
+                        <h2 class="warning_head">This is warning :</h2>
+                        <div id="warning-desc">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus maiores mollitia, ex esse fugiat illum odit ullam hic repellendus distinctio dolorem excepturi officia velit laborum quis est in quo amet sunt iusto impedit. Impedit, quos?
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+            </div>
+        </section>   
+
+<script src="./src/weather.js"></script>
+</body>
+
+</html>
